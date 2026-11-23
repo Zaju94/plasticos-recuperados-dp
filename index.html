@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plásticos Recuperados DP</title>
+<meta name="description" content="Plásticos Recuperados DP — clasificación y molienda de plástico reciclado en Palmira, Valle del Cauca. Cotiza por WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --g900:#0b3d24; --g700:#11663a; --g600:#178a4c; --g500:#22a85d; --g100:#e6f4ec; --g50:#f3faf6;
+  --ink:#13261b; --muted:#4d6357; --line:#d6e7dc; --white:#fff; --wa:#25d366;
+  --radius:18px; --max:1140px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{font-family:Figtree,system-ui,sans-serif;color:var(--ink);background:var(--white);line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:"Bricolage Grotesque",sans-serif;line-height:1.1;letter-spacing:-.02em}
+a{color:inherit}
+img,svg{display:block}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--g600)}
+.eyebrow::before{content:"";width:22px;height:2px;background:currentColor}
+section{padding:96px 0}
+.sec-head{max-width:640px;margin-bottom:48px}
+.sec-head h2{font-size:clamp(32px,4.5vw,48px);margin:12px 0 14px;color:var(--g900)}
+.sec-head p{color:var(--muted)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font:600 16px Figtree,sans-serif;text-decoration:none;border-radius:999px;padding:15px 26px;transition:transform .15s,background .15s,box-shadow .15s;cursor:pointer;border:0}
+.btn svg{width:20px;height:20px;flex:none}
+.btn-wa{background:var(--wa);color:#063d1d;box-shadow:0 8px 24px -8px rgba(37,211,102,.6)}
+.btn-wa:hover{transform:translateY(-2px);background:#2ee072}
+.btn-ghost{color:var(--white);border:1.5px solid rgba(255,255,255,.4)}
+.btn-ghost:hover{background:rgba(255,255,255,.1)}
+.btn:focus-visible,a:focus-visible{outline:3px solid var(--g500);outline-offset:3px}
+
+/* nav */
+header.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:"Bricolage Grotesque";font-weight:800;font-size:19px;color:var(--g900)}
+.logo-mark{width:36px;height:36px;border-radius:10px;background:var(--g600);display:grid;place-items:center}
+.logo-mark svg{width:22px;height:22px}
+.logo small{color:var(--g600)}
+.nav ul{display:flex;gap:30px;list-style:none}
+.nav ul a{text-decoration:none;font-weight:500;color:var(--muted);font-size:15px}
+.nav ul a:hover{color:var(--g700)}
+.nav .btn{padding:10px 18px;font-size:14px}
+.menu-btn{display:none;background:none;border:0;width:42px;height:42px;cursor:pointer;color:var(--g900)}
+.menu-btn svg{width:26px;height:26px}
+
+/* hero */
+.hero{position:relative;overflow:hidden;background:var(--g900);color:var(--white);padding:110px 0 120px}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 85% 20%,rgba(34,168,93,.45),transparent 60%),radial-gradient(ellipse 50% 60% at 0% 100%,rgba(23,138,76,.4),transparent 60%)}
+.flakes{position:absolute;inset:0;pointer-events:none}
+.flakes span{position:absolute;border-radius:3px;opacity:.9;transform:rotate(var(--r))}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.25fr .9fr;gap:56px;align-items:center}
+.hero .eyebrow{color:#8ee0b0}
+.hero h1{font-size:clamp(42px,6.6vw,78px);font-weight:800;margin:18px 0 22px}
+.hero h1 em{font-style:normal;color:#8ee0b0}
+.hero p.lead{font-size:clamp(18px,2vw,21px);color:#cfe9da;max-width:540px;margin-bottom:34px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px}
+.hero-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:24px;padding:28px;backdrop-filter:blur(6px)}
+.hero-card h3{font-size:15px;font-family:Figtree;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#8ee0b0;margin-bottom:18px}
+.stat{display:flex;align-items:baseline;gap:14px;padding:14px 0;border-top:1px solid rgba(255,255,255,.12)}
+.stat:first-of-type{border-top:0;padding-top:0}
+.stat b{font-family:"Bricolage Grotesque";font-size:34px;font-weight:800;min-width:96px}
+.stat span{color:#cfe9da;font-size:15px}
+
+/* about */
+.about .wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.about-text p{color:var(--muted);margin-bottom:16px;font-size:18px}
+.about-text p strong{color:var(--ink)}
+.pillars{display:grid;gap:16px}
+.pillar{display:flex;gap:18px;align-items:flex-start;padding:22px;border:1px solid var(--line);border-radius:var(--radius);background:var(--g50)}
+.pillar .ic{flex:none;width:46px;height:46px;border-radius:12px;background:var(--g600);display:grid;place-items:center;color:#fff}
+.pillar .ic svg{width:24px;height:24px}
+.pillar h3{font-size:19px;margin-bottom:4px;color:var(--g900)}
+.pillar p{color:var(--muted);font-size:15px}
+
+/* catalog */
+.catalog{background:var(--g50);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:22px}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}
+.card:hover{transform:translateY(-4px);box-shadow:0 18px 40px -20px rgba(11,61,36,.35)}
+.swatch{height:120px;position:relative;overflow:hidden;background:var(--sw-bg,#eef5f0)}
+.swatch i{position:absolute;border-radius:3px;transform:rotate(var(--r))}
+.tag{position:absolute;top:14px;left:14px;background:#fff;color:var(--g700);font-size:12px;font-weight:600;padding:5px 11px;border-radius:999px;letter-spacing:.04em;z-index:1}
+.card-body{padding:24px;display:flex;flex-direction:column;gap:12px;flex:1}
+.card h3{font-size:22px;color:var(--g900)}
+.card p{color:var(--muted);font-size:15.5px}
+.meta{display:flex;flex-direction:column;gap:8px;margin-top:auto;padding-top:14px;border-top:1px dashed var(--line);font-size:14.5px}
+.meta div{display:flex;justify-content:space-between;gap:10px}
+.meta dt{color:var(--muted)}
+.meta dd{font-weight:600;text-align:right}
+.meta .price{color:var(--g600)}
+.card .btn{margin-top:6px;width:100%;background:var(--g600);color:#fff}
+.card .btn:hover{background:var(--g700)}
+
+/* process */
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;list-style:none;counter-reset:s;position:relative}
+.steps::before{content:"";position:absolute;top:34px;left:10%;right:10%;height:2px;background:repeating-linear-gradient(90deg,var(--g500) 0 8px,transparent 8px 16px)}
+.step{position:relative;text-align:center;padding:0 6px}
+.step .ic{width:68px;height:68px;margin:0 auto 18px;border-radius:50%;background:#fff;border:2px solid var(--g500);display:grid;place-items:center;color:var(--g600);position:relative}
+.step .ic svg{width:30px;height:30px}
+.step .ic::after{counter-increment:s;content:counter(s);position:absolute;top:-6px;right:-6px;width:24px;height:24px;border-radius:50%;background:var(--g900);color:#fff;font:600 12px/24px Figtree;text-align:center}
+.step h3{font-size:20px;color:var(--g900);margin-bottom:6px}
+.step p{color:var(--muted);font-size:15px}
+
+/* contact */
+.contact{background:var(--g900);color:#fff;position:relative;overflow:hidden}
+.contact::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 100% 0%,rgba(34,168,93,.35),transparent 60%)}
+.contact .wrap{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.contact .sec-head h2{color:#fff}
+.contact .sec-head p{color:#cfe9da}
+.contact .eyebrow{color:#8ee0b0}
+.c-list{display:grid;gap:14px}
+.c-item{display:flex;align-items:center;gap:18px;padding:20px 22px;border-radius:var(--radius);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);text-decoration:none;transition:background .15s}
+a.c-item:hover{background:rgba(255,255,255,.13)}
+.c-item .ic{flex:none;width:48px;height:48px;border-radius:12px;background:#8ee0b0;color:var(--g900);display:grid;place-items:center}
+.c-item .ic svg{width:24px;height:24px}
+.c-item small{display:block;color:#a9d4bb;font-size:13px;letter-spacing:.06em;text-transform:uppercase}
+.c-item b{font-weight:600;font-size:17px;word-break:break-all}
+
+footer{background:#072a18;color:#a9d4bb;font-size:14px;padding:26px 0}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+.wa-float{position:fixed;right:20px;bottom:20px;z-index:60;width:60px;height:60px;border-radius:50%;background:var(--wa);display:grid;place-items:center;box-shadow:0 10px 30px -6px rgba(0,0,0,.35);transition:transform .15s}
+.wa-float:hover{transform:scale(1.07)}
+.wa-float svg{width:32px;height:32px;color:#fff}
+
+/* responsive */
+@media (max-width:960px){
+  .hero .wrap,.about .wrap,.contact .wrap{grid-template-columns:1fr;gap:40px}
+  .steps{grid-template-columns:1fr;gap:0;text-align:left}
+  .steps::before{top:0;bottom:0;left:33px;right:auto;width:2px;height:auto;background:repeating-linear-gradient(180deg,var(--g500) 0 8px,transparent 8px 16px)}
+  .step{display:grid;grid-template-columns:68px 1fr;gap:0 20px;text-align:left;padding:0 0 28px}
+  .step .ic{margin:0;grid-row:span 2}
+  .step h3{margin-top:8px}
+}
+@media (max-width:760px){
+  body{font-size:16px}
+  section{padding:68px 0}
+  .wrap{padding:0 16px}
+  .nav ul{display:none;position:absolute;top:68px;left:0;right:0;flex-direction:column;gap:0;background:#fff;border-bottom:1px solid var(--line);padding:8px 16px 16px}
+  .nav ul.open{display:flex}
+  .nav ul a{display:block;padding:12px 0;font-size:17px}
+  .menu-btn{display:block}
+  .nav .btn.desk{display:none}
+  .hero{padding:72px 0 80px}
+  .hero-actions .btn{width:100%}
+  .grid{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a href="#inicio" class="logo" aria-label="Plásticos Recuperados DP, inicio">
+      <span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 19H4.8a1.8 1.8 0 0 1-1.6-2.7L7.5 9"/><path d="M11 19h8.2a1.8 1.8 0 0 0 1.6-2.7l-1.5-2.6"/><path d="m14 16-3 3 3 3"/><path d="M8.3 13.4 7.5 9 3 10.2"/><path d="m9.3 5.6 1.1-1.9a1.8 1.8 0 0 1 3.1 0l3.9 6.7"/><path d="m13.4 9.7 3.6.6.8-4.5"/></svg></span>
+      <span>Plásticos Recuperados <small>DP</small></span>
+    </a>
+    <nav>
+      <ul id="menu">
+        <li><a href="#nosotros">Quiénes somos</a></li>
+        <li><a href="#catalogo">Catálogo</a></li>
+        <li><a href="#proceso">Proceso</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn-wa desk" href="https://wa.me/573103044663?text=Hola%2C%20quiero%20cotizar%20material%20reciclado." target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>WhatsApp</a>
+    <button class="menu-btn" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu" onclick="const m=document.getElementById('menu');const o=m.classList.toggle('open');this.setAttribute('aria-expanded',o)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+</header>
+
+<main>
+<!-- INICIO -->
+<section class="hero" id="inicio">
+  <div class="flakes" aria-hidden="true" id="flakes"></div>
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Palmira · Valle del Cauca</span>
+      <h1>Le damos una <em>segunda vida</em> al plástico.</h1>
+      <p class="lead">Clasificamos y molemos plástico reciclado de calidad constante, listo para volver a la industria.</p>
+      <div class="hero-actions">
+        <a class="btn btn-wa" href="https://wa.me/573103044663?text=Hola%2C%20quiero%20cotizar%20material%20reciclado." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>Escríbenos por WhatsApp</a>
+        <a class="btn btn-ghost" href="#catalogo">Ver catálogo</a>
+      </div>
+    </div>
+    <aside class="hero-card" aria-label="Lo que ofrecemos">
+      <h3>Lo que ofrecemos</h3>
+      <div class="stat"><b>5</b><span>tipos de material molido y clasificado</span></div>
+      <div class="stat"><b>kg</b><span>despacho en costal, por kilogramo</span></div>
+      <div class="stat"><b>100%</b><span>material recuperado que no termina en el relleno</span></div>
+    </aside>
+  </div>
+</section>
+
+<!-- QUIÉNES SOMOS -->
+<section class="about" id="nosotros">
+  <div class="wrap">
+    <div class="about-text">
+      <span class="eyebrow">Quiénes somos</span>
+      <div class="sec-head" style="margin-bottom:22px"><h2>Reciclaje serio, hecho en Palmira.</h2></div>
+      <p><strong>Plásticos Recuperados DP</strong> es una empresa colombiana dedicada a la recuperación, clasificación y molienda de plásticos post-consumo e industriales.</p>
+      <p>Transformamos residuos en materia prima limpia y bien clasificada para fabricantes y transformadores, reduciendo la cantidad de plástico que llega a rellenos sanitarios, ríos y suelos del Valle del Cauca.</p>
+      <p>Cada kilo que procesamos es un kilo menos de plástico virgen que la industria necesita producir.</p>
+    </div>
+    <div class="pillars">
+      <div class="pillar"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 19 2c1 2 2 4.2 2 8 0 5.5-4.8 10-10 10Z"/><path d="M2 21c0-3 1.9-5.4 5.2-6.1 2.4-.5 4.6-1.6 6.8-3.9"/></svg></span><div><h3>Impacto ambiental</h3><p>Menos residuos en rellenos y fuentes de agua, menos plástico virgen.</p></div></div>
+      <div class="pillar"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span><div><h3>Clasificación cuidadosa</h3><p>Separamos por tipo y color para entregar material uniforme.</p></div></div>
+      <div class="pillar"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg></span><div><h3>Trato directo</h3><p>Atención personalizada y cotización rápida por WhatsApp.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CATÁLOGO -->
+<section class="catalog" id="catalogo">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Catálogo de productos</span>
+      <h2>Material molido, listo para transformar.</h2>
+      <p>Todos nuestros productos se despachan en costal y se venden por kilogramo. Escríbenos para conocer disponibilidad y precio actualizado.</p>
+    </div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<!-- PROCESO -->
+<section class="process" id="proceso">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Nuestro proceso</span>
+      <h2>Del residuo al costal, en cinco pasos.</h2>
+      <p>Un proceso controlado para entregar material limpio y homogéneo.</p>
+    </div>
+    <ol class="steps">
+      <li class="step"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 17h4V5H2v12h3"/><path d="M20 17h2v-3.3a1 1 0 0 0-.2-.6l-3.5-4.5a1 1 0 0 0-.8-.4H14v8h1"/><circle cx="7.5" cy="17.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg></span><h3>Recolección</h3><p>Recibimos y recogemos plástico de industrias, comercios y recicladores.</p></li>
+      <li class="step"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M7 12h10M10 18h4"/></svg></span><h3>Clasificación</h3><p>Separamos por tipo de resina y color, retirando contaminantes.</p></li>
+      <li class="step"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.7s6 6.3 6 11.3a6 6 0 0 1-12 0c0-5 6-11.3 6-11.3Z"/></svg></span><h3>Lavado</h3><p>Lavamos el material para eliminar residuos, etiquetas y grasas.</p></li>
+      <li class="step"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.2 4.2l2.9 2.9M16.9 16.9l2.9 2.9M1 12h4M19 12h4M4.2 19.8l2.9-2.9M16.9 7.1l2.9-2.9"/></svg></span><h3>Molienda</h3><p>Molemos el plástico en hojuela de tamaño uniforme.</p></li>
+      <li class="step"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8v8l9 5 9-5V8Z"/><path d="M3 8l9 5 9-5M12 13v8"/></svg></span><h3>Empaque</h3><p>Empacamos en costal, pesado por kilo y listo para despacho.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section class="contact" id="contacto">
+  <div class="wrap">
+    <div class="sec-head" style="margin-bottom:0">
+      <span class="eyebrow">Contacto</span>
+      <h2>¿Necesitas material? Hablemos.</h2>
+      <p>Cuéntanos qué material buscas y cuántos kilos necesitas. Te respondemos con disponibilidad y cotización por WhatsApp.</p>
+      <div style="margin-top:28px"><a class="btn btn-wa" href="https://wa.me/573103044663?text=Hola%2C%20quiero%20cotizar%20material%20reciclado." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>Cotiza por WhatsApp</a></div>
+    </div>
+    <div class="c-list">
+      <a class="c-item" href="https://wa.me/573103044663" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg></span><span><small>WhatsApp</small><b>310 304 4663</b></span></a>
+      <a class="c-item" href="mailto:plasticosrecuperados_DP@outlook.com"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span><span><small>Correo</small><b>plasticosrecuperados_DP@outlook.com</b></span></a>
+      <div class="c-item"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span><span><small>Ciudad</small><b>Palmira, Valle del Cauca</b></span></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="y"></span> Plásticos Recuperados DP · Palmira, Colombia</span>
+    <span>Clasificación y molienda de plástico</span>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/573103044663?text=Hola%2C%20quiero%20cotizar%20material%20reciclado." target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg></a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="wa" viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4ZM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8Zm8.4-18.2A11.8 11.8 0 0 0 1.7 17.8L0 24l6.3-1.7a11.8 11.8 0 0 0 5.7 1.4c6.5 0 11.8-5.3 11.8-11.8 0-3.2-1.2-6.1-3.4-8.3Z"/></symbol></svg>
+
+<script>
+const WA = "573103044663";
+const products = [
+  {name:"Polietileno soplado de colores", tag:"PE · Colores", desc:"Molido de envases soplados de colores variados, clasificado y limpio. Ideal para productos de color oscuro o mezclas.", bg:"#eef5f0", colors:["#e74c3c","#2e86de","#f1c40f","#27ae60","#8e44ad","#e67e22"]},
+  {name:"Polietileno blanco", tag:"PE · Blanco", desc:"Hojuela de polietileno blanco seleccionado, de color uniforme para aplicaciones que requieren tonos claros.", bg:"#dfece4", colors:["#ffffff","#f7f7f2","#fbfbfb"]},
+  {name:"PET de gaseosa", tag:"PET · Bebidas", desc:"Molido de botellas de gaseosa, lavado y separado por color (cristal y verde) según disponibilidad.", bg:"#e3f0f7", colors:["#bfe3f2","#9fd6c4","#d8eef8","#7fc8a9"]},
+  {name:"PET de aceite de cocina", tag:"PET · Aceite", desc:"Molido de envases de aceite comestible con proceso de lavado para retirar grasas y residuos.", bg:"#f6f2df", colors:["#f3e3a2","#e9d77e","#f7edc4"]},
+  {name:"Material de segunda", tag:"Mezcla", desc:"Material recuperado de calidad mixta, una opción económica para usos donde el color o la pureza no son críticos.", bg:"#ececea", colors:["#9aa39d","#6f7a73","#b9a27a","#4f6b5a","#c7c2b6"]},
+];
+const rnd = (a,b)=>a+Math.random()*(b-a);
+function flakes(n, colors, extra=""){
+  let s="";
+  for(let i=0;i<n;i++){
+    const c=colors[i%colors.length], w=rnd(8,22), h=rnd(5,14);
+    s+=`<i style="left:${rnd(-4,100)}%;top:${rnd(-10,100)}%;width:${w}px;height:${h}px;background:${c};--r:${rnd(0,180)}deg;box-shadow:0 1px 2px rgba(0,0,0,.12)${extra}"></i>`;
+  }
+  return s;
+}
+document.getElementById("grid").innerHTML = products.map(p=>{
+  const msg = encodeURIComponent(`Hola, quiero cotizar: ${p.name}. ¿Cuál es la disponibilidad y el precio por kg?`);
+  return `<article class="card">
+    <div class="swatch" style="--sw-bg:${p.bg}" aria-hidden="true"><span class="tag">${p.tag}</span>${flakes(38,p.colors)}</div>
+    <div class="card-body">
+      <h3>${p.name}</h3>
+      <p>${p.desc}</p>
+      <dl class="meta">
+        <div><dt>Presentación</dt><dd>Costal · por kg</dd></div>
+        <div><dt>Precio</dt><dd class="price">Cotiza por WhatsApp</dd></div>
+      </dl>
+      <a class="btn" href="https://wa.me/${WA}?text=${msg}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>Cotizar</a>
+    </div></article>`;
+}).join("");
+// hero flakes
+const hf=document.getElementById("flakes"), hc=["#22a85d","#8ee0b0","#ffffff","#178a4c","#5cc98a"];
+let h="";
+for(let i=0;i<40;i++){
+  const w=rnd(6,18),hh=rnd(4,10);
+  h+=`<span style="left:${rnd(40,100)}%;top:${rnd(0,100)}%;width:${w}px;height:${hh}px;background:${hc[i%hc.length]};opacity:${rnd(.15,.5).toFixed(2)};--r:${rnd(0,180)}deg"></span>`;
+}
+hf.innerHTML=h;
+document.getElementById("y").textContent=new Date().getFullYear();
+document.querySelectorAll("#menu a").forEach(a=>a.addEventListener("click",()=>{document.getElementById("menu").classList.remove("open")}));
+</script>
+</body>
+</html>

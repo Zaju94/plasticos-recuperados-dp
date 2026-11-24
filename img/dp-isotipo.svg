@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="600" height="600">
+  <title>Plásticos Recuperados DP — Isotipo (color)</title>
+  <defs>
+    <path id="a" d="M113.86 28 L169.28 60 L169.28 101" fill="none" stroke-width="14" stroke-linejoin="miter"/>
+    <polygon id="h" points="152.28,99 186.28,99 169.28,128"/>
+  </defs>
+  <use href="#a" stroke="#18A058"/>
+  <use href="#h" fill="#18A058"/>
+  <g transform="rotate(120 100 100)"><use href="#a" stroke="#1395A6"/><use href="#h" fill="#1395A6"/></g>
+  <g transform="rotate(240 100 100)"><use href="#a" stroke="#6CC04A"/><use href="#h" fill="#6CC04A"/></g>
+  <g fill="#0C3B2E" fill-rule="evenodd" transform="translate(100 100) scale(.8) translate(-99 -100)">
+    <path d="M44 68H72A32 32 0 0 1 72 132H44Z M59 83H72A17 17 0 0 1 72 117H59Z"/>
+    <path d="M110 68H132A22 22 0 0 1 132 112H125V132H110Z M125 83H132A7 7 0 0 1 132 97H125Z"/>
+  </g>
+</svg>
